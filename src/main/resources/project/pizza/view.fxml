@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="project.pizza.controller.MainController" stylesheets="@style.css">
+
+    <!-- Верхній заголовок -->
+    <top>
+        <Label text="🍕 Pizza File Processor"
+               styleClass="header-label"
+               BorderPane.alignment="CENTER"/>
+    </top>
+
+    <!-- Основна частина -->
+    <center>
+        <GridPane hgap="20" vgap="20" alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="50"/>
+                <ColumnConstraints percentWidth="50"/>
+            </columnConstraints>
+
+            <!-- Вибір файлів -->
+            <VBox spacing="10" GridPane.columnIndex="0">
+                <Label text="Виберіть файли:" styleClass="section-label"/>
+                <Button fx:id="chooseFileBtn" text="Вибрати файли" onAction="#handleChooseFile"/>
+                <Label fx:id="statusLabel" styleClass="file-label" wrapText="true" maxWidth="300"/>
+            </VBox>
+
+            <!-- Сортування -->
+            <VBox spacing="10" GridPane.columnIndex="1">
+                <Label text="Сортування піц:" styleClass="section-label"/>
+                <HBox spacing="10">
+                    <Label text="Cheap:" minWidth="60"/>
+                    <ComboBox fx:id="sortCheapComboBox" prefWidth="180"/>
+                </HBox>
+                <HBox spacing="10">
+                    <Label text="Medium:" minWidth="60"/>
+                    <ComboBox fx:id="sortMediumComboBox" prefWidth="180"/>
+                </HBox>
+                <HBox spacing="10">
+                    <Label text="Expensive:" minWidth="60"/>
+                    <ComboBox fx:id="sortExpensiveComboBox" prefWidth="180"/>
+                </HBox>
+                <Separator/>
+                <Button fx:id="processBtn" text="▶ Обробити файли" onAction="#handleProcess"/>
+            </VBox>
+        </GridPane>
+    </center>
+</BorderPane>
